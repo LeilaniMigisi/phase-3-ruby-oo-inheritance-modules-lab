@@ -4,6 +4,9 @@ class Artist
   attr_accessor :name
   attr_reader :songs
 
+  extend Reset_all
+  extend Count 
+
   @@artists = []
 
   def initialize
@@ -36,7 +39,7 @@ class Artist
     songs.each { |song| add_song(song) }
   end
 
-  def to_param
+   def to_param
     name.downcase.gsub(' ', '-')
   end
 end
